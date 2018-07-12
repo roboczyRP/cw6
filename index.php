@@ -6,8 +6,10 @@
  * Time: 14:23
  */
 
-require('application/Imagine/Gd/Imagine.php');
+require('vendor/autoload.php');
 
-use Imagine\Gd\Imagine;
+$imagine = new Imagine\Gd\Imagine();
+$image = $imagine->open(__DIR__.'/jack.jpg');
 
-$object = new Imagine();
+$image->resize(new \Imagine\Image\Box(200 , 200))
+        ->save(__DIR__.'/jack2.jpg');
